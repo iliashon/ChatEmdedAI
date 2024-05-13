@@ -9,6 +9,7 @@ import { getLocalStorageChatflow, setLocalStorageChatflow } from '@/utils';
 type Props = {
   message: MessageType;
   chatflowid: string;
+  botId?: string;
   chatId: string;
   leadsConfig?: LeadsConfig;
   apiHost?: string;
@@ -96,7 +97,7 @@ export const LeadCaptureBubble = (props: Props) => {
           'font-size': props.fontSize ? `${props.fontSize}px` : `${defaultFontSize}`,
         }}
       >
-        {props.isLeadSaved || getLocalStorageChatflow(props.chatflowid)?.lead ? (
+        {props.isLeadSaved || getLocalStorageChatflow(props.chatflowid, props.botId)?.lead ? (
           <div class="flex flex-col gap-2">
             <span style={{ 'white-space': 'pre-line' }}>
               {props.leadsConfig?.successMessage || 'Thank you for submitting your contact information.'}

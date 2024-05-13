@@ -2,6 +2,7 @@ import { LeadsConfig, MessageType } from '@/components/Bot';
 type Props = {
     message: MessageType;
     chatflowid: string;
+    botId?: string;
     chatId: string;
     leadsConfig?: LeadsConfig;
     apiHost?: string;
